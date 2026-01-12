@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Luxury Wedding – Grey Elite Fusion</title>
+  <link rel="stylesheet" href="../eventp.css" />
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<script>
+const weddingVideo = document.querySelector('#weddingVideo');
+if (weddingVideo) {
+  const ioVideo = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        weddingVideo.play();
+      } else {
+        weddingVideo.pause();
+      }
+    });
+  }, { threshold: 0.4 });
+  ioVideo.observe(weddingVideo);
+}
+</script>
+
+
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="logo"><a href="../eventp.html">Grey Elite Fusion</a></h1>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a href="../eventp.html#home" class="nav-link">Home</a></li>
+          <li><a href="../eventp.html#portfolio" class="nav-link">Portfolio</a></li>
+          <li><a href="../eventp.html#services" class="nav-link">Services</a></li>
+          <li><a href="../eventp.html#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero hero-wedding reveal">
+    <div class="hero-content">
+      <h1>Luxury Wedding Experience</h1>
+      <p>Crafted to perfection — a timeless celebration of love, elegance, and style.</p>
+    </div>
+  </section>
+
+  <!-- 🎥 Luxury Wedding Video Showcase -->
+<section class="video-showcase reveal">
+  <video autoplay muted loop playsinline poster="../" id="weddingVideo">
+    <source src="../videos/luxury-wedding.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="video-overlay">
+    <h2 class="overlay-title">Cinematic Experience</h2>
+    <p class="overlay-text">
+      Relive the elegance and romance of our signature Luxury Wedding —
+      every frame designed to capture timeless beauty.
+    </p>
+    
+     <!-- ⏯️ Play/Pause Button -->
+    <button class="video-toggle" id="videoToggle">
+      <i class="fas fa-pause"></i>
+    </button>
+  </div>
+</section>
+
+
+  <!-- Project Gallery -->
+  <section class="section reveal">
+    <h2 class="section-title">Event Highlights</h2>
+    <div class="gallery-grid">
+      <img src="lmages\pablo-hernandez-ut7gsZ3gcu4-unsplash.jpg" alt="Ceremony setup" />
+      <img src="lmages\vidit-goswami-Aw4YLjCZfBE-unsplash.jpg" alt="Reception décor" />
+      <img src="lmages\chidy-young-xMeNnm18N2I-unsplash.jpg" alt="Cake and table styling" />
+      <img src="lmages\devin-burton-HelgHNUXmks-unsplash.jpg" alt="First dance" />
+    </div>
+  </section>
+
+  <!-- Details -->
+  <section class="section reveal">
+    <div class="project-details">
+      <h2>About the Event</h2>
+      <p>
+        Our Luxury Wedding package transforms dreams into reality with 
+        bespoke design, floral artistry, culinary excellence, and flawless 
+        coordination. Every moment reflects the couple’s unique story in 
+        a sophisticated atmosphere.
+      </p>
+      <ul class="details-list">
+        <li><i class="fa-solid fa-champagne-glasses"></i> Venue: Grand Orchid Hall</li>
+        <li><i class="fa-solid fa-music"></i> Theme: Golden Romance</li>
+        <li><i class="fa-solid fa-crown"></i> Guests: 350 VIP attendees</li>
+      </ul>
+      <a href="../eventp.html#portfolio" class="btn btn-outline">← Back to Portfolio</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; <span id="year"></span> Grey Elite Fusion. All rights reserved.</p>
+  </footer>
+
+  <script src="../eventp.js"></script>
+</body>
+</html>

@@ -1,0 +1,864 @@
+/* =========================
+   GREY ELITE FUSION — Premium Redesign
+   ========================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@400;500;600&display=swap");
+
+:root {
+  --bg: #0b0b0b;
+  --text: #e8e8e8;
+  --muted: #aaa;
+  --accent: #d4af37;
+  --glass: rgba(255, 255, 255, 0.06);
+  --blur: 14px;
+  --radius: 16px;
+  --ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Poppins", sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- HEADER ---------- */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99;
+  background: rgba(10, 10, 10, 0.6);
+  backdrop-filter: blur(var(--blur));
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: background 0.4s var(--ease), box-shadow 0.4s var(--ease);
+}
+.site-header.scrolled {
+  background: rgba(10, 10, 10, 0.85);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+}
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+.logo {
+  font-family: "Playfair Display", serif;
+  font-size: 1.4rem;
+  color: var(--accent);
+  text-decoration: none;
+}
+.nav-list {
+  display: flex;
+  gap: 1.6rem;
+  list-style: none;
+}
+.nav-link,
+.nav-cta {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s var(--ease);
+}
+.nav-link:hover,
+.nav-cta:hover {
+  color: var(--accent);
+}
+
+/* ---------- HERO ---------- */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.8)),
+    url("https://images.unsplash.com/photo-1521334884684-d80222895322?auto=format&fit=crop&w=1920&q=80")
+      center/cover no-repeat;
+  animation: heroZoom 10s ease-in-out infinite alternate;
+  padding: 0 1rem;
+}
+@keyframes heroZoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+.hero h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 2.6rem;
+  line-height: 1.2;
+  color: #fff;
+}
+.hero .highlight {
+  color: var(--accent);
+}
+.hero p {
+  max-width: 600px;
+  margin: 1rem auto 2rem;
+  color: var(--muted);
+}
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+.btn {
+  padding: 0.8rem 1.6rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s var(--ease);
+}
+.btn-primary {
+  background: linear-gradient(90deg, var(--accent), #f5e6a1);
+  color: #000;
+}
+.btn-outline {
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  background: transparent;
+}
+.btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.25);
+}
+.hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4rem;
+  margin-top: 2rem;
+}
+
+.hero-stats, .stat {
+  text-align: center;
+}
+
+.hero-stats h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+/* ---------- SECTION ---------- */
+.section {
+  padding: 100px 0;
+}
+.section-heading {
+  text-align: center;
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+  color: #fff;
+}
+.section-sub {
+  text-align: center;
+  color: var(--muted);
+  margin-bottom: 3rem;
+}
+
+/* ===========================
+   Services Section
+=========================== */
+
+/* ===========================
+   Enhanced Services Grid
+=========================== */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  margin-top: 4rem;
+}
+
+.service-card {
+  background: var(--glass); /* Using your defined glass color */
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.4s var(--ease);
+  position: relative;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--accent);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.service-card-image {
+  position: relative;
+  height: 240px;
+  overflow: hidden;
+}
+
+.service-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.service-card:hover .service-card-image img {
+  transform: scale(1.1);
+}
+
+.service-icon {
+  position: absolute;
+  bottom: -20px;
+  right: 20px;
+  width: 50px;
+  height: 60px;
+  background: var(--accent); /* gold color */
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  border: 4px solid var(--bg);
+  z-index: 2;
+}
+
+.service-card-content {
+  padding: 2.5rem 1.5rem 1.5rem;
+  text-align: left;
+}
+
+.service-card-content h3 {
+  font-family: "Playfair Display", serif;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.service-card-content p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+.service-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: gap 0.3s ease;
+}
+
+.service-link:hover {
+  gap: 12px;
+}
+/* ===========================
+   Portfolio Section
+=========================== */
+
+.portfolio-section {
+  padding: 8rem 5%;
+  background: rgba(10, 10, 10, 0.9);
+  backdrop-filter: blur(12px);
+  color: #fff;
+  text-align: center;
+}
+
+.portfolio-section .section-title {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+.portfolio-section .section-subtitle {
+  color: #aaa;
+  max-width: 600px;
+  margin: 0 auto 4rem;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 1.5rem;
+}
+
+.portfolio-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.portfolio-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+  border-radius: 16px;
+}
+
+.portfolio-item:hover img {
+  transform: scale(1.1);
+  filter: brightness(0.6);
+}
+
+.portfolio-item .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 16px;
+  transition: opacity 0.6s ease;
+}
+
+.portfolio-item:hover .overlay {
+  opacity: 1;
+}
+
+.overlay h3 {
+  font-size: 1.4rem;
+  color: #fff;
+  margin-bottom: 0.3rem;
+}
+
+.overlay p {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+/* ===========================
+   Booking Section
+=========================== */
+
+.booking-section {
+  padding: 8rem 5%;
+  background: rgba(15, 15, 15, 0.9);
+  backdrop-filter: blur(15px);
+  color: #fff;
+  text-align: center;
+}
+
+.booking-section .section-title {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+.booking-section .section-subtitle {
+  color: #aaa;
+  max-width: 600px;
+  margin: 0 auto 4rem;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.booking-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.booking-form .form-group {
+  width: 100%;
+}
+
+.booking-form input,
+.booking-form textarea {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  font-size: 1rem;
+  color: #fff;
+  outline: none;
+  transition: all 0.3s ease;
+  font-family: "Poppins", sans-serif;
+}
+
+.booking-form input:focus,
+.booking-form textarea:focus {
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.btn-submit {
+  background: linear-gradient(135deg, #ffb347, #ffcc33);
+  color: #000;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 0 rgba(255, 204, 51, 0);
+}
+
+.btn-submit:hover {
+  box-shadow: 0 0 20px rgba(255, 204, 51, 0.3);
+  transform: translateY(-2px);
+}
+
+.form-status {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #aaa;
+  font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .booking-form {
+    padding: 0 1rem;
+  }
+}
+
+
+/* Reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s ease-out;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Reveal animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .service {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .service.reverse {
+    flex-direction: column;
+  }
+}
+
+/* ===========================
+   Contact Section / Footer
+=========================== */
+
+.contact-section {
+  padding: 6rem 5% 2rem;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(12px);
+  color: #fff;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.contact-section .section-title {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+.contact-section .section-subtitle {
+  color: #aaa;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.contact-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 2rem 1rem;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(10px);
+}
+
+.contact-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-6px);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.05);
+}
+
+.contact-item i {
+  font-size: 1.6rem;
+  color: #ffcc33;
+  margin-bottom: 0.8rem;
+}
+
+.contact-item h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+  color: #fff;
+  font-weight: 600;
+}
+
+.contact-item p,
+.contact-item a {
+  color: #ccc;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+  color: #ffcc33;
+}
+
+/* Social links */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.social-links a {
+  color: #fff;
+  font-size: 1.2rem;
+  transition: all 0.4s ease;
+}
+
+.social-links a:hover {
+  color: #ffcc33;
+  transform: scale(1.15);
+}
+
+.footer-bottom {
+  margin-top: 3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1.5rem;
+}
+
+.footer-bottom p {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+/* Reveal animation (reuse from before) */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ---------- CARDS ---------- */
+.card {
+  background: var(--glass);
+  backdrop-filter: blur(var(--blur));
+  border-radius: var(--radius);
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.4s var(--ease);
+}
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+/* ---------- PORTFOLIO ---------- */
+.port-card {
+  background: var(--glass);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: all 0.4s var(--ease);
+}
+.port-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+.port-header {
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(120deg, #222, #333);
+}
+
+/* ---------- BOOKING ---------- */
+.booking-form {
+  background: var(--glass);
+  padding: 2rem;
+  border-radius: var(--radius);
+  backdrop-filter: blur(var(--blur));
+  max-width: 700px;
+  margin: 0 auto;
+}
+.booking-form input,
+.booking-form select,
+.booking-form textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  outline: none;
+}
+.booking-form input:focus,
+.booking-form select:focus,
+.booking-form textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+
+/* ---------- SCROLL ANIMATION ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.4s var(--ease);
+}
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- LUXURY WEDDING PAGE ---------- */
+.hero-wedding {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+              url("lmages/iskra-photography-iXTkKQyVqbM-unsplash.jpg") center/cover no-repeat;
+  color: white;
+  text-align: center;
+  padding: 140px 20px;
+  animation: heroZoom 10s ease-in-out infinite alternate;
+}
+@keyframes heroZoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.2rem;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 18px;
+  transition: transform 0.6s ease;
+   animation: heroZoom 10s ease-in-out infinite alternate;
+}
+
+.gallery-grid img:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+   transform: scale(1.1);
+  filter: brightness(0.6);
+}
+
+
+.project-details {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  color: var(--text-light);
+}
+
+.details-list {
+  list-style: none;
+  margin: 1.2rem 0;
+  padding: 0;
+}
+
+.details-list li {
+  margin: 0.6rem 0;
+  font-size: 1.05rem;
+}
+
+.details-list i {
+  color: var(--accent);
+  margin-right: 0.5rem;
+}
+/* ============================
+   🎥 Luxury Wedding Video Section
+   ============================ */
+
+.video-showcase {
+  position: relative;
+  width: 100%;
+  height: 85vh;
+  overflow: hidden;
+  border-radius: 20px;
+  margin: 3rem 0;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+.video-showcase video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  filter: brightness(70%) contrast(110%) saturate(120%);
+}
+
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  padding: 2rem;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.35),
+    rgba(0, 0, 0, 0.75)
+  );
+}
+
+.overlay-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #f4d07a; /* your gold accent */
+  margin-bottom: 0.5rem;
+}
+
+.overlay-text {
+  max-width: 700px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+/* ------------------------------
+   Cinematic Text Fade-in Animation
+   ------------------------------ */
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  60% {
+    opacity: 0.8;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply animation when the section is revealed */
+.video-showcase .overlay-title,
+.video-showcase .overlay-text {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.video-showcase.show .overlay-title,
+.video-showcase.show .overlay-text {
+  animation: fadeUp 1.2s ease forwards;
+}
+
+.video-showcase.show .overlay-text {
+  animation-delay: 0.4s; /* text appears slightly after title */
+}
+.video-showcase video {
+  animation: slowZoom 18s ease-in-out infinite alternate;
+}
+
+@keyframes slowZoom {
+  from {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+/* ============================
+   🎛️ Video Play/Pause Button
+   ============================ */
+
+.video-toggle {
+  margin-top: 2rem;
+  background: rgba(255, 215, 0, 0.15);
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  font-size: 1.4rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+}
+
+.video-toggle:hover {
+  background: var(--accent);
+  color: #000;
+  transform: scale(1.08);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+}
+
+/* Icon smooth change */
+.video-toggle i {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+

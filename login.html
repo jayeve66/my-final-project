@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Web Class — Sign In</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Firebase (Compat) -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+  <!-- Firebase Config -->
+  <script src="js/firebase-config.js"></script>
+
+  <!-- App Logic -->
+  <script defer src="js/app.js"></script>
+</head>
+
+<body class="bg">
+
+  <main class="container">
+    <div class="hero">
+
+      <!-- Brand -->
+      <div class="brand">
+        <div class="logo">WC</div>
+        <div>
+          <h1 class="title">Web Class</h1>
+          <p class="subtitle">Neo-glass dashboard & secure auth</p>
+        </div>
+      </div>
+
+      <!-- Cards Wrapper -->
+      <div class="cards">
+
+        <!-- Auth Card -->
+        <section class="card auth-card">
+          <div class="card-head">
+            <h2>Sign in / Create account</h2>
+            <p class="muted">Use email & password — fast and secure</p>
+          </div>
+
+          <div class="forms">
+            <!-- Sign Up -->
+            <form id="signupForm" class="form">
+              <input name="email" type="email" placeholder="Email" required />
+              <input name="password" type="password" placeholder="Password (min 6)" minlength="6" required />
+              <button class="btn btn-primary" type="submit">Create account</button>
+            </form>
+
+            <div class="divider">or</div>
+
+            <!-- Login -->
+            <form id="loginForm" class="form">
+              <input name="email" type="email" placeholder="Email" required />
+              <input name="password" type="password" placeholder="Password" required />
+              <button class="btn btn-ghost" type="submit">Sign in</button>
+            </form>
+          </div>
+        </section>
+
+        <!-- Contact Card -->
+        <section class="card contact-card">
+          <div class="card-head">
+            <h2>Contact / Message</h2>
+            <p class="muted">Visitors can send messages that appear in admin dashboard</p>
+          </div>
+
+          <form id="contactForm" class="form contact-form">
+            <input name="name" type="text" placeholder="Your name" required />
+            <input name="email" type="email" placeholder="Your email" required />
+            <textarea name="message" placeholder="Your message" rows="4" required></textarea>
+            <button class="btn btn-accent" type="submit">Send message</button>
+          </form>
+        </section>
+
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <small>Built with ♥ — Dark Neo-Glass UI</small>
+      <small class="credits">Your Firebase project: <strong>backend-almara</strong></small>
+    </footer>
+  </main>
+
+</body>
+</html>

@@ -1,0 +1,498 @@
+:root {
+  /* --- Colors and Aesthetic from eventp.css (GREY ELITE FUSION) --- */
+  --bg: #0b0b0b;          /* Dark background from eventp.css */
+  --text: #e8e8e8;        /* Light text from eventp.css */
+  --muted: #ac9a9ae1;          /* Muted grey from eventp.css */
+  --accent: #d4af37;      /* Gold/Accent color from eventp.css */
+  --glass: rgba(255, 255, 255, 0.06); /* Base glass effect from eventp.css */
+  --blur: 14px;           /* Blur amount from eventp.css */
+  --radius: 16px;         /* Corner radius from eventp.css */
+  --ease: cubic-bezier(0.25, 0.1, 0.25, 1); /* Custom ease curve from eventp.css */
+
+  /* --- Preserved/Updated style.css variables --- */
+  --panel: #00020831; /* Keeping original panel dark color */
+  --glass-border: rgba(255, 255, 255, 0.065);
+  --glass-shadow: 0 10px 40px rgba(0, 0, 0, 0.55); /* Darkened shadow for better fit */
+  
+  /* UPDATED: Change blue/cyan gradients to gold-themed gradients */
+  --accent-1: linear-gradient(135deg, var(--accent) 0%, #f5e6a1 100%);
+  --accent-2: linear-gradient(135deg, #ffcc33 0%, #d4af37 100%);
+
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+}
+
+/* =============================
+   GLOBAL BACKGROUND
+============================= */
+body.bg {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      1200px 400px at 10% 20%,
+      rgba(212, 175, 55, 0.15), /* Changed to gold accent tint */
+      transparent
+    ),
+    radial-gradient(
+      900px 300px at 90% 80%,
+      rgba(255, 204, 51, 0.1), /* Changed to gold accent tint */
+      transparent
+    ),
+    var(--bg); /* Uses the new --bg color */
+}
+
+/* =============================
+   TYPOGRAPHY
+============================= */
+.muted {
+  color: var(--muted);
+}
+
+/* =============================
+   GENERAL
+============================= */
+.container {
+  max-width: 1100px;
+  padding: 24px;
+  margin: 0 auto;
+}
+
+.card {
+  background: var(--panel);
+  border-radius: var(--radius); /* Uses the new --radius */
+  padding: 24px;
+  box-shadow: var(--glass-shadow);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(var(--blur)); /* Uses the new --blur */
+}
+
+.form input:focus,
+.form textarea:focus {
+  border-color: var(--accent); /* Uses the new --accent color */
+}
+
+/* =============================
+   BUTTONS
+============================= */
+.btn {
+  padding: 10px 18px;
+  border: none;
+  border-radius: var(--radius); /* Uses the new --radius */
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s var(--ease); /* Uses the new --ease */
+}
+
+.btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  opacity: 0.7;
+  transform: translateY(0);
+}
+
+.btn.small {
+  padding: 6px 12px;
+  font-size: 0.8rem;
+}
+
+.btn-primary {
+  background: var(--accent-1);
+  color: #fff;
+}
+
+.btn-accent {
+  background: var(--accent-2);
+  color: #020617;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text); /* Uses new --text color for contrast */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.btn-danger {
+  background: linear-gradient(180deg, #ff6b6b, #ff3838);
+  color: #fff;
+}
+
+/* =============================
+   SUBMISSIONS LIST (Dashboard)
+============================= */
+.submissions-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 56vh;
+  overflow-y: auto;
+}
+
+.submissions-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.774);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+/* Left content */
+.submission-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.submission-name {
+  font-weight: 600;
+  color: var(--text); /* Uses the new --text color */
+}
+
+.submission-email {
+  color: var(--muted);
+  font-size: 0.9em;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.submission-message {
+  margin-top: 4px;
+  font-style: italic;
+  color: var(--muted);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  line-height: 1.4;
+  max-height: 2.8em;
+}
+
+/* Right content */
+.submission-right {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.submission-date {
+  font-size: 0.8em;
+  color: var(--muted);
+  opacity: 0.8;
+  margin-bottom: auto;
+}
+
+.submission-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.submission-actions .btn {
+  padding: 6px 8px;
+  border-radius: 8px;
+}
+
+.submission-actions .btn-danger {
+  background: #dc2626;
+}
+
+
+/* =============================
+   TOPBAR (Dashboard)
+============================= */
+.topbar {
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--panel);
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.top-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.topbar h3 {
+  margin: 0;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.topbar .logo {
+  background: var(--accent); /* Uses the new --accent color */
+  color: #0b0b0b;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-weight: 700;
+}
+
+.top-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-info p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.logout-btn {
+  background: var(--glass); /* Uses the new --glass variable */
+  color: var(--text);
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.logout-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* =============================
+   DASHBOARD PANELS
+============================= */
+.dashboard {
+  padding-top: 40px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+  min-height: calc(100vh - 80px);
+}
+
+.panel {
+  padding: 24px;
+  border-radius: var(--radius);
+  background: var(--panel);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(var(--blur));
+}
+
+.panel-head {
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 10px;
+}
+
+.panel-head h2 {
+  margin: 0 0 4px 0;
+  color: var(--text);
+}
+
+.stats {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.stat {
+  background: var(--glass);
+  padding: 16px;
+  border-radius: var(--radius);
+  border: 1px solid var(--glass-border);
+}
+
+.stat-value {
+  font-size: 2em;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.stat-label {
+  font-size: 0.9em;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.stats .actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-start;
+  background: transparent;
+  padding: 0;
+  border: none;
+}
+
+/* =============================
+   LOGIN/MESSAGE FORMS
+============================= */
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 40px 0;
+  align-items: center;
+  text-align: center;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand h1 {
+  margin: 0;
+  font-weight: 900;
+  font-size: 2.5rem;
+  color: var(--text);
+}
+
+.brand p {
+  margin: 0;
+  color: var(--muted);
+  max-width: 400px;
+}
+
+.brand .logo {
+  background: var(--accent);
+  color: #020617;
+  padding: 8px 14px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.forms-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  width: 100%;
+  max-width: 900px;
+}
+
+.form-card,
+.contact-card {
+  padding: 32px;
+}
+
+.card-head {
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.card-head h2 {
+  margin: 0 0 4px 0;
+  color: var(--text);
+}
+
+.card-head p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9em;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form input,
+.form textarea {
+  padding: 12px 16px;
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.1);
+  color: var(--text);
+  font-size: 1rem;
+  transition: border-color 0.2s var(--ease);
+  resize: vertical;
+}
+
+.form input::placeholder,
+.form textarea::placeholder {
+  color: var(--muted);
+  opacity: 0.7;
+}
+
+
+.form input[type="email"],
+.form input[type="password"] {
+  color: var(--text); /* Use new --text color */
+}
+
+.divider {
+  text-align: center;
+  margin: 16px 0;
+  color: var(--muted);
+  position: relative;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background: var(--glass-border);
+}
+
+.divider::before {
+  left: 0;
+}
+
+.divider::after {
+  right: 0;
+}
+
+.contact-form textarea {
+  min-height: 100px;
+}
+
+/* =============================
+   FOOTER
+============================= */
+.footer {
+  padding: 16px 24px;
+  text-align: center;
+  color: var(--muted);
+  border-top: 1px solid var(--glass-border);
+  margin-top: 32px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  font-size: 0.9em;
+}
+
+.footer strong {
+  color: var(--accent);
+}
+
+/* =============================
+   MEDIA QUERIES
+============================= */
+@media (max-width: 768px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+
+  .forms-grid {
+    grid-template-columns: 1fr;
+  }
+}
